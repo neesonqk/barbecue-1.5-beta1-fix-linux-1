@@ -6,115 +6,84 @@
 <!-- For more information, see http://maven.apache.org/        -->
 <!--                                                           -->
 <!-- ######################################################### -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <name>barbecue</name>
-  <url>http://barbecue.sourceforge.net/</url>
-  <groupId>net.sourceforge.barbecue</groupId>
-  <artifactId>barbecue</artifactId>
-  <packaging>jar</packaging>
-  <version>1.5-beta2</version>
-  <description>barbecue</description>
-  <organization>
-    <name>barbecue.sourceforge.net</name>
-    <url>http://barbecue.sourceforge.net/</url>
-  </organization>
-  <inceptionYear>2003</inceptionYear>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<name>barbecue</name>
+	<url>http://barbecue.sourceforge.net/</url>
+	<groupId>net.sourceforge.barbecue</groupId>
+	<artifactId>barbecue</artifactId>
+	<packaging>jar</packaging>
+	<version>1.5-beta2</version>
+	<description>barbecue</description>
+	<organization>
+		<name>barbecue.sourceforge.net</name>
+		<url>http://barbecue.sourceforge.net/</url>
+	</organization>
+	<inceptionYear>2003</inceptionYear>
 
-  <issueManagement>
-  <url>http://sourceforge.net/tracker/?group_id=78049</url>
-  </issueManagement>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<issueManagement>
+		<url>http://sourceforge.net/tracker/?group_id=78049</url>
+	</issueManagement>
 
 
-  <distributionManagement>
-  <site>
-    <id>barbecue-website</id>
-    <url>scp://shell.sourceforge.net/home/groups/b/ba/barbecue/htdocs</url>
-  </site>
-  </distributionManagement>
+	<distributionManagement>
+		<repository>
+		  <id>barbecue</id>
+		  <url>https://maven.pkg.github.com/neesonqk/barbecue-1.5-beta1-fix-linux-1</url>
+		</repository>
+	 </distributionManagement>
 
-  <scm>
-     <connection>scm:svn:https://barbecue.svn.sourceforge.net/svnroot/barbecue</connection>
-     <developerConnection>scm:svn:https://barbecue.svn.sourceforge.net/svnroot/barbecue</developerConnection>
-     <url>http://barbecue.svn.sourceforge.net/viewvc/barbecue/trunk/</url>
-  </scm>
 
-  <mailingLists>
-    <mailingList>
-      <name>barbecue developer list</name>
-      <subscribe>http://lists.sourceforge.net/lists/listinfo/barbecue-devel</subscribe>
-      <unsubscribe>http://lists.sourceforge.net/lists/listinfo/barbecue-devel</unsubscribe>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=barbecue-devel</archive>
-    </mailingList>
-    <mailingList>
-      <name>barbecue announce list</name>
-      <subscribe>http://lists.sourceforge.net/lists/listinfo/barbecue-announce</subscribe>
-      <unsubscribe>http://lists.sourceforge.net/lists/listinfo/barbecue-announce</unsubscribe>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=barbecue-announce</archive>
-    </mailingList>
-  </mailingLists>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.portlet</groupId>
+			<artifactId>portlet-api</artifactId>
+			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 
-  <developers>
-    <developer>
-      <name>Sean C. Sullivan</name>
-      <id>sullis</id>
-      <email>sean --*-- seansullivan --*-- com</email>
-      <organization></organization>
-    </developer>
-    <developer>
-      <name>Werner Keil</name>
-      <id>keilw</id>
-      <email>keilw --*-- users.sf.net</email>
-      <organization></organization>
-    </developer>
-  </developers>
+	<build>
+		<sourceDirectory>${basedir}/src/java</sourceDirectory>
+	</build>
 
-  <dependencies>
-  	<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>3.8.1</version>
-        <scope>test</scope>
-  	</dependency>
-  	<dependency>
-		<groupId>jdom</groupId>
-		<artifactId>jdom</artifactId>
-		<version>1.0</version>
-  	</dependency>
-  	<dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>servlet-api</artifactId>
-		<version>2.2</version>
-        <scope>provided</scope>
-  	</dependency>
-  	<dependency>
-		<groupId>javax.portlet</groupId>
-		<artifactId>portlet-api</artifactId>
-		<version>2.0</version>
-        <scope>provided</scope>
-  	</dependency>
-  </dependencies>
-
-  <build>
-    <sourceDirectory>${basedir}/src/java</sourceDirectory>
-  </build>
-    
-  <reporting>
+	<reporting>
 		<plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-project-info-reports-plugin</artifactId>
-        </plugin>
-		<plugin>
-        	<groupId>org.apache.maven.plugins</groupId>
-	        <artifactId>maven-javadoc-plugin</artifactId>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jxr-plugin</artifactId>
-        </plugin>        
-        </plugins>  
-   </reporting>
-  
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+
 </project>
